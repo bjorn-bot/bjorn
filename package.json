@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.io": "github:woor/discord.io#gateway_v6",
+    "fuse.js": "^3.2.0",
     "mongoose": "^5.0.17",
     "node-forge": "^0.7.5",
     "superagent": "^3.8.3",
