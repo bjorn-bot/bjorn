@@ -13,13 +13,22 @@ bjornBot.on('ready', (evt) => {
 bjornBot.on('message', async (user, userID, channelID, message, evt) => {
   if (message[0] == '!') {
     let i = message.indexOf(' ');
+    if (i === -1) {
+      i = message.length;
+    }
     let command = message.slice(1, i);
     let args = message.slice(i + 1);
 
     if (botCommands[command]) {
       let discordResponse = await botCommands[command](args);
 
-      bjornBot.sendMessage({ to: channelID, message: discordResponse});
+      if (Array.isArray(discordResponse)) {
+        discordResponse.forEach((response) => {
+          bjornBot.sendMessage({ to: channelID, message: response});
+        });
+      } else {
+        bjornBot.sendMessage({ to: channelID, message: discordResponse});
+      }
     }
   }
 });
