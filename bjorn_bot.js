@@ -7,6 +7,7 @@ let bjornBot = new Discord.Client({
 });
 
 bjornBot.on('ready', (evt) => {
+  bjornBot.editUserInfo({ username: 'Bjorn' });
   console.log(`Logged in as: ${bjornBot.username} (${bjornBot.id})`);
 });
 
