@@ -12,7 +12,8 @@ var keepSchema = new mongoose.Schema({
   location: {
     x: Number,
     y: Number
-  }
+  },
+  power: Number
 });
 
 module.exports = exports = mongoose.model('Keep', keepSchema);
